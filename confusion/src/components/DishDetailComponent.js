@@ -8,7 +8,7 @@ class DishDetail extends Component{
 renderDish(dish) {
     if (dish != null)
         return(
-            <Card>
+            <Card className="col-12 col-md-5 m-1">
                 <CardImg top src={dish.image} alt={dish.name} />
                 <CardBody>
                   <CardTitle>{dish.name}</CardTitle>
@@ -22,35 +22,47 @@ renderDish(dish) {
         );
 }
 
-// renderComments(comments) {
-//     if (comments != null)
-//         return(
-//             <div>
-//                 <h4>Comments</h4>
-//             </div>
-            
-//         );
-//     else
-//         return(
-//             <div></div>
-//         );
-// }
 
-render(){
-   return(
-       <div className="container">
-        <div className="row">
-            <div  className="col-12 col-md-5 m-1">
-                {this.renderDish(this.props.dish)}
-            </div>
+renderComments(comments)
+{
+  if(comments!=null)
+    {   
+        return(
+            <div className="col-12 col-md-5 m-1">
+        <h4>Comments</h4>
+        <ul className="list-unstyled">
+            {comments.map(comment=>(
+                <li key={comment.id}>
+                <p>{comment.comment}</p>
+                <p>--{comment.author}, {comment.date}</p>
+                </li>
+            ))}
+        </ul>
         </div>
-            {/* <div  className="col-12 col-md-5 m-1">
-                {this.renderComments(this.props.dish.comments)}
-            </div> */}
+        );
         
-       </div>
-   ); 
+    }
+    else
+        return(
+            <div></div>
+        );
 }
+
+
+
+render() {
+    if (this.props.dish === null) {
+      return ( <div/> );
+    }
+    else {
+      return (
+        <div className='row text-left'>
+          {this.renderDish(this.props.dish)}
+          {this.renderComments(this.props.dish.comments)}
+        </div>
+      );
+    }
+  }
 
 }
 
