@@ -1,10 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './components/App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+//const greeting=React.createElement('h1',{},'Hello World');
+
+const getCurrentDate=()=>{
+    const date=new Date();
+    return date.toLocaleTimeString();
+}
+
+const greeting=<h1>Hello World! Time:{getCurrentDate()/* This is how functions are used in JSX*/}</h1> //JSX style
+ReactDOM.render(<App/>, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
