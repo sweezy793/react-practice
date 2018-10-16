@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import SeriesList from '../../components/SeriesList';
 
 class Series extends Component{
 
@@ -8,7 +9,7 @@ class Series extends Component{
     
       componentDidMount(){
         
-        fetch('http://api.tvmaze.com/search/shows?q=punisher')
+        fetch('http://api.tvmaze.com/search/shows?q=daredevil')
         .then(response=>response.json())
         .then(json=>this.setState({series:json}))
         
@@ -16,7 +17,9 @@ class Series extends Component{
 
     render(){
         return(
-            <div>The length of series array - {this.state.series.length}</div>
+            <div>The length of series array - {this.state.series.length}
+            <SeriesList list={this.state.series} />
+            </div>            
         )
     }
 }
