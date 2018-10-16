@@ -17,7 +17,19 @@ class SingleSeries extends Component{
         return(
             <div>
                 {show===null&&<Loader/>}
-                {show!==null&&<p>Show has been loaded</p>}
+                {
+                  show!==null
+                  &&
+                  <div>
+                      <h2><b>{show.name}</b></h2>
+                      <p>Premiered-{show.premiered}</p>
+                      <p>Rating-{show.rating.average}</p>
+                      <p>Episodes-{show._embedded.episodes.length}</p>
+                      <p>
+                          <img alt="Show" src={show.image.medium}/>
+                      </p>
+                  </div>
+                }
             </div>
         )
     }
