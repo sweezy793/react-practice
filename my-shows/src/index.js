@@ -3,18 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App';
 import * as serviceWorker from './serviceWorker';
+import {BrowserRouter} from 'react-router-dom'; 
 
 //const greeting=React.createElement('h1',{},'Hello World');
 
-const getCurrentDate=()=>{
-    const date=new Date();
-    return date.toLocaleTimeString();
-}
 
-const greeting=<h1>Hello World! Time:{getCurrentDate()/* This is how functions are used in JSX*/}</h1> //JSX style
-ReactDOM.render(<App/>, document.getElementById('root'));
+//const greeting=<h1>Hello World! Time:{getCurrentDate()/* This is how functions are used in JSX*/}</h1> //JSX style
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
+ReactDOM.render(<BrowserRouter><App/></BrowserRouter>, document.getElementById('root'));
 serviceWorker.unregister();
