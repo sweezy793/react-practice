@@ -8,8 +8,6 @@ import VideoDetail from './components/video_detail'
 
 const API_KEY='AIzaSyCFBBIcBhMZ0aG0Gc2Gab0hGoBC60nnkgg';
 
-
-
 class App extends Component{
     constructor(props){
         super(props);
