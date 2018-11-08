@@ -2,23 +2,37 @@ import React,{Component} from 'react'
 import {Field,reduxForm} from 'redux-form'
 
 class PostsNew extends Component{
-    renderTitleField(field){
+    renderField(field){
         return(
-            <div>
-                <input
+            <div className="form-group">
+                <label>{field.label}</label>
+                <input className="form-control"
                     type="text"
                     {...field.input}
                 />
             </div>
         )
     }
+
+
     
     render(){
         return(
             <form>
                 <Field
+                    label="Blog Title" 
                     name="title"
-                    component={this.renderTitleField}
+                    component={this.renderField}
+                />
+                <Field
+                    label="Tags"
+                    name="tags"
+                    component={this.renderField}
+                />
+                <Field
+                    label="Post Content"
+                    name="content"
+                    component={this.renderField}
                 />
             </form>
         )
